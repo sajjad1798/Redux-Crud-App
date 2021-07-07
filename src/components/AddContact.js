@@ -1,15 +1,18 @@
 import React , {useState} from 'react'
 import { Container , Card } from 'reactstrap';
 import { useForm } from "react-hook-form";
-import {addContact} from '../store'
+import {addContact} from '../actions/contactAcitons'
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import shortid from 'shortid';
 const AddContact = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const new_contact = {id:shortid.generate(),...data}
         dispatch(addContact(new_contact))
+        history.push("/")
     };
     return (
         <Container className="mt-5 shadow p-3">

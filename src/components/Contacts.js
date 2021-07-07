@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Contact from './Contact';
 
 const Contacts = (props) => {
-  const contacts =  useSelector(state => state.contacts);
+  const contacts =  useSelector(state => state.contacts.contacts);
   console.log(contacts);
   return (
       <Container className="mt-5">
@@ -25,7 +25,7 @@ const Contacts = (props) => {
       <tbody>
         {
           contacts.map((contact) =>(
-            <Contact  contact={contact}/>
+            <Contact  key={contact.id} contact={contact}/>
           ))
 }
       </tbody>
