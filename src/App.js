@@ -1,7 +1,11 @@
-
+import Navigation from "./components/Navbar";
+import Contact from "./components/Contact";
 function App() {
   return (
-  <div>Hello World</div>
+  <div>
+    <Navigation />
+    <Contact />
+  </div>
   );
 }
 
